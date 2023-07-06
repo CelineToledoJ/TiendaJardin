@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="carrito">
+        <div class="header-carrito">
+            <h2> Tu Carrito </h2>
+        </div>
+        <div class="carrito-items">
+            {% for item in carro %}
+            <div class="carrito-item">
+                <img src="{{ item.2 }}" alt="" width="120px">
+                <div class="carrito-item-detalles">
+                    <span class="carrito-item-titulo">{{ item.0 }} - {{item.1}}</span>
+                    <div class="selector-cantidad">
+                        <a href="{% url 'dropitem' item.0 %}" class="fa-solid fa-minus  restar-cantidad" style="color:#333;"></a>
+                        <input type="text" value="{{ item.4 }}" class="carrito-item-cantidad" disabled>
+                        <a href="{% url 'addtocar2' item.0 %}" class="fa-solid fa-plus sumar-cantidad" style="color:#333;"></a>
+                    </div>
+                    <span class="carrito-item-precio">unidad ${{ item.3 }}</span><br>
+                    <span class="carrito-item-precio-total">subtotal ${{ item.5 }}</span>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="carrito-total">
+            <a href="{% url 'comprar' %}" class="boton-pagar"> Pagar <i class="fa-solid fa-bag-shopping"></i></a>
+        </div>
+    </div>
+    {% endblock %}

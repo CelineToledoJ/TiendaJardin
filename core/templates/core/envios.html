@@ -1,0 +1,37 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="compras" id="compras">
+    <div class="box_contenedor">
+        {% for fila in ventas %}
+        <div class="box">
+            <div class="estado">
+                <h2>{{fila.estado}}</h2>
+            </div>
+            <div class="detalle-envio">
+                <p> Pedido efectuado el: {{ fila.fecha }} <br>
+                 N° de pedido: {{ fila.id }}</p>
+            </div>
+            <div class="imagen">
+                <img src="https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1631188850-41eMJ5wRzKL._SL500_.jpg?crop=1xw:1.00xh;center,top&resize=980:*" alt="" width="120px">
+                <div class="info">
+                    <p class="nombre">planta ejemplo<br>
+                        <br>
+                         $000000 --- x 4 -ejemplo Sub:$000
+                         Total a pagar: ${{ fila.total }}</p>
+                </div>
+                <div class="botones">
+                    <a href="#" class="boton1"> confirmar recepcion </a>
+                    <a href="#"  class="boton1"> rastrear pedido </a>
+                </div>
+            </div> 
+        </div>
+        <br>  
+        {% endfor %}
+    </div>   
+{% if not ventas %}
+    <h1>No tienes compras aún.</h1>
+{% endif %}
+</section>
+    {% endblock %}

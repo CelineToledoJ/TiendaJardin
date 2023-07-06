@@ -1,0 +1,52 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="home" id="home">
+        <div class="contenido">
+            <h3>Los mejores productos</h3>
+            <p>Nacimos con la misión de darle vida a los espacios, trayendo lo mejor en flores y decoracion para jardines.</p>
+            <a href="{% url 'catalogo' %}" class="boton">Nuevos Productos!</a>
+        </div>
+    </section>
+
+    <section class="iconos_contenedor">
+        <div class="iconos">
+            <img src="{% static 'imagenes/delivery.png'%}" alt="">
+            <div class="info">
+                <h3>Delivery gratis en Santiago</h3>
+                <span>en ordenes mayores a $60.000</span>
+            </div>
+        </div>
+        <div class="iconos">
+            <img src="{% static 'imagenes/garantia.png' %}" alt="">
+            <div class="info">
+                <h3>Seguridad garantizada</h3>
+                <span>15 días hábiles de devolución de dinero</span>
+            </div>
+        </div>
+        <div class="iconos">
+            <img src="{% static 'imagenes/paypal.png' %}" alt="">
+            <div class="info">
+                <h3>Todo medio de pago</h3>
+                <span>Paypal / Visa / Mastercard</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="contacto" id="contacto">
+        <h1 class="titulo"> <span>Contácta</span>nos</h1>
+        <div class="fila">
+            <form action="">
+                <input type="text" placeholder="Nombre" class="box">
+                <input type="email" placeholder="Email" class="box">
+                <input type="number" placeholder="Número" class="box">
+                <textarea name="" class="box" placeholder="Mensaje" id="" cols="30" rows="10"></textarea>
+                <input type="submit" value="enviar mensaje" class="boton">
+            </form>
+            <div class="imagen">
+                <img src="{% static 'imagenes/planta_mesanje.png' %}" alt="">
+            </div>
+        </div>
+    </section> 
+    {% endblock %}

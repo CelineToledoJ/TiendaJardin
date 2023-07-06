@@ -1,0 +1,30 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="productos" id="productos">
+    <section class="nombretitulo" id="nombretitulo">
+        <h1 class="titulo"> Catálogo Productos</h1>  
+    </section>
+    <div class="box_contenedor">
+        {% for box in plantas %}
+        <div class="box">
+            {% if box.oferta %}
+            <span class="descuento">-{{box.porcentaje}}%</span>
+            {% endif %}
+            <div class="imagen">
+                <img src="{{ box.imagen }}" alt="">
+                <div class="iconos">
+                    <a href="{% url 'addtocar' box.codigo %}" class="cart-btn">Añadir al carrito</a>
+                </div>
+            </div>
+            <div class="contenido">
+                <h3>{{ box.detalle }}</h3>
+                <h5>{{ box.tachado }} <span>  ${{ box.precio }} </span></h5>
+                <div class="unidades"><span> quedan </span> {{box.stock}} unidades</div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

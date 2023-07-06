@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="home2" id="home2">
+        <div class="contenido">
+            {% if suscrito %}
+            <h3>Estas Suscrito!!</h3>
+            <p>Gracias por suscribirte a Tienda jardín, las fundaciones te lo agradeceran! ʕ•́ᴥ•̀ʔっ♡</p>
+            {% else %}
+            <h3>Suscribete a Tienda Jardín</h3>
+            <p>suscribete para recibir todas nuestras notificaciones de descuentos y ofertas especiales.
+               Además,
+                estas ayudando a fundaciones sin fines de lucro en nuestra region metropolitana!
+            </p>
+            <form action="{% url 'suscribir' %}" method="post">
+                {% csrf_token %}
+                <button class="boton" type="submit">suscribirse!</button>
+            </form>
+            </div>
+
+            {% endif %}
+    </section>
+    {% endblock %}
